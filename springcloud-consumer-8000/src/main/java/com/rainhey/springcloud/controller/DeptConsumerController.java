@@ -20,8 +20,10 @@ public class DeptConsumerController {
     @Autowired
     private RestTemplate restTemplate;  //提供多种边界访问http服务的方法，简单的restful模板
 
-    public static final String prefixurl="http://localhost:8001";
+   //public static final String prefixurl="http://localhost:8001";
 
+    //基于Ribbon负载均衡，通过服务名访问
+    public static final String prefixurl="http://SPRINGCLOUD-PROVIDER-DEPT";
     @RequestMapping("/consumer/dept/add")
     public boolean add(Dept dept){
         return restTemplate.postForObject(prefixurl+"/dept/add", dept, boolean.class);

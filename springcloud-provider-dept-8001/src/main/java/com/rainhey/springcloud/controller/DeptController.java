@@ -27,6 +27,4 @@ public class DeptController {
         return deptService.queryAll();
     }
 
-
-
 }

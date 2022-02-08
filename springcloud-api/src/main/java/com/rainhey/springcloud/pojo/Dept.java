@@ -14,12 +14,11 @@ import java.io.Serializable;
 public class Dept implements Serializable {
     private long deptno;
     private String dname;
-    private String db_resource;
+    private String db_source;
 
     public Dept(long deptno) {
         this.deptno = deptno;
     }
 
-    /*链式写法*/
 
 }

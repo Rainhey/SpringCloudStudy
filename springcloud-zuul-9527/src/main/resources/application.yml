@@ -1,0 +1,27 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: springcloud-zuul
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/,http://localhost:7003/eureka/
+  instance:
+    instance-id: zuul9527.com #修改Eureka默认描述信息Status
+    prefer-ip-address: true  #隐藏真实IP
+
+
+info:  #autuator
+  app.name: rainhey-springcloud
+  company.name: www.rainhey.com
+
+
+zuul:
+  routes:
+    mydept.serviceId: springcloud-provider-dept  #隐藏服务名
+    mydept.path: /mydept/**
+  ignored-services: springcloud-provider-dept   # 使通过原来的服务名访问无效 ； 可以使用通配符 "*" 来隐藏所有的服务名
+  prefix: /rainhey # 设置统一的访问前缀
